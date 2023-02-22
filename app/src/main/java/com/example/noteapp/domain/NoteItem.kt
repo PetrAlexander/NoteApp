@@ -3,7 +3,7 @@ package com.example.noteapp.domain
 data class NoteItem(
     val name: String,
     val priority: Int,
-    val enabled: Boolean,
+    var enabled: Boolean,
     var id: Int = UNDEFINED_ID
 ) {
     companion object {
