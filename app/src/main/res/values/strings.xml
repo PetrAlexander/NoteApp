@@ -6,4 +6,6 @@
     <string name="save">Save</string>
     <string name="priority">Priority</string>
     <string name="name">Name</string>
+    <string name="error_input_priority">Errot priority</string>
+    <string name="error_input_name">Error name</string>
 </resources>

@@ -9,14 +9,17 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.example.noteapp.R
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class MainActivity : AppCompatActivity() {
     private lateinit var viewModel: MainViewModel
     private lateinit var recyclerView: RecyclerView
     private lateinit var notesAdapter: NoteListAdapter
+    private lateinit var buttonAdd: FloatingActionButton
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        initViews()
         viewModel = ViewModelProvider(this)[MainViewModel::class.java]
         setupRecyclerView()
         viewModel.noteList.observe(this) {
@@ -68,7 +71,13 @@ class MainActivity : AppCompatActivity() {
 
     private fun setupOnClickListener() {
         notesAdapter.onNoteItemClickListener = {
-            Log.d("MAIN", it.name)
+            val intent = NoteItemActivity.newIntentEditItem(this, it.id)
+            startActivity(intent)
+        }
+
+        buttonAdd.setOnClickListener {
+            val intent = NoteItemActivity.newIntentAddItem(this)
+            startActivity(intent)
         }
     }
 
@@ -76,5 +85,9 @@ class MainActivity : AppCompatActivity() {
         notesAdapter.onNoteItemLongClickListener = {
             viewModel.changeEnableState(it)
         }
+    }
+
+    private fun initViews() {
+        buttonAdd = findViewById(R.id.floatingActionButton)
     }
 }
