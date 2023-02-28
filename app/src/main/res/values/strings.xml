@@ -3,4 +3,7 @@
     <string name="note_text_tools">Note text</string>
     <string name="note_priority_tools">3</string>
     <string name="add_note_discription">Add note</string>
+    <string name="save">Save</string>
+    <string name="priority">Priority</string>
+    <string name="name">Name</string>
 </resources>

@@ -20,6 +20,7 @@
         android:padding="16dp">
 
         <TextView
+            android:id="@+id/textViewNoteText"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -29,6 +30,7 @@
             tools:text="@string/note_text_tools" />
 
         <TextView
+            android:id="@+id/textViewPriority"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@android:color/white"
